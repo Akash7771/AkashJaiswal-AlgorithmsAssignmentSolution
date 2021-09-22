@@ -43,62 +43,62 @@ public class Stocker {
                 companyList.add(company);
             }
 
-        }catch (InputMismatchException ime){
 
+
+            do {
+                System.out.println(
+                        "Enter the operation that you want to perform" + lineBreak +
+                                "1. Display the companies stock prices in ascending order" + lineBreak +
+                                "2. Display the companies stock prices in descending order" + lineBreak +
+                                "3. Display the total no of companies for which stock prices rose today" + lineBreak +
+                                "4. Display the total no of companies for which stock prices declined today" + lineBreak +
+                                "5. Search a specific stock price" + lineBreak +
+                                "6. press 0 to exit" + lineBreak
+                );
+                ch = sc.nextInt();
+                switch(ch){
+                    case 1 :
+                        Double [] stockPricesAsc =
+                        stockerService.displayCompanyStockPriceOrdeyBy(companyList , ORDERBY.ASC);
+                        displayService.displayStockPriceOrderBy(stockPricesAsc , ORDERBY.ASC);
+                        break;
+                    case 2:
+                        Double [] stockPricesDesc =
+                        stockerService.displayCompanyStockPriceOrdeyBy(companyList , ORDERBY.DESC);
+                        displayService.displayStockPriceOrderBy(stockPricesDesc , ORDERBY.DESC);
+                        break;
+                    case 3:
+                        Integer countRose =
+                        stockerService.countCompanyStockPriceByGrowthStatus(companyList , GROWTHSTATUS.ROSE);
+                        displayService.displayCountByGrowthStatus(countRose , GROWTHSTATUS.ROSE);
+                        break;
+                    case 4:
+                        Integer countDecline =
+                        stockerService.countCompanyStockPriceByGrowthStatus(companyList , GROWTHSTATUS.DECLINE);
+                        displayService.displayCountByGrowthStatus(countDecline , GROWTHSTATUS.DECLINE);
+                        break;
+                    case 5:
+                        System.out.println("enter the key value");
+                        Double stockPrice = sc.nextDouble();
+                        Boolean found =
+                        stockerService.searchStockByStockPrice(companyList , stockPrice);
+                        displayService.displaySearchResult(stockPrice , found);
+                        break;
+                    case 6:
+                        ch=0;
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        continue;
+
+                }
+
+            }while(ch != 0);
+        }catch (InputMismatchException ime){
+            System.err.println("invalid input type");
         }catch (Exception e){
             System.err.println(e);
         }
-
-        do {
-            System.out.println(
-                    "Enter the operation that you want to perform" + lineBreak +
-                            "1. Display the companies stock prices in ascending order" + lineBreak +
-                            "2. Display the companies stock prices in descending order" + lineBreak +
-                            "3. Display the total no of companies for which stock prices rose today" + lineBreak +
-                            "4. Display the total no of companies for which stock prices declined today" + lineBreak +
-                            "5. Search a specific stock price" + lineBreak +
-                            "6. press 0 to exit" + lineBreak
-            );
-            ch = sc.nextInt();
-            switch(ch){
-                case 1 :
-                    Double [] stockPricesAsc =
-                    stockerService.displayCompanyStockPriceOrdeyBy(companyList , ORDERBY.ASC);
-                    displayService.displayStockPriceOrderBy(stockPricesAsc , ORDERBY.ASC);
-                    break;
-                case 2:
-                    Double [] stockPricesDesc =
-                    stockerService.displayCompanyStockPriceOrdeyBy(companyList , ORDERBY.DESC);
-                    displayService.displayStockPriceOrderBy(stockPricesDesc , ORDERBY.DESC);
-                    break;
-                case 3:
-                    Integer countRose =
-                    stockerService.countCompanyStockPriceByGrowthStatus(companyList , GROWTHSTATUS.ROSE);
-                    displayService.displayCountByGrowthStatus(countRose , GROWTHSTATUS.ROSE);
-                    break;
-                case 4:
-                    Integer countDecline =
-                    stockerService.countCompanyStockPriceByGrowthStatus(companyList , GROWTHSTATUS.DECLINE);
-                    displayService.displayCountByGrowthStatus(countDecline , GROWTHSTATUS.DECLINE);
-                    break;
-                case 5:
-                    System.out.println("enter the key value");
-                    Double stockPrice = sc.nextDouble();
-                    Boolean found =
-                    stockerService.searchStockByStockPrice(companyList , stockPrice);
-                    displayService.displaySearchResult(stockPrice , found);
-                    break;
-                case 6:
-                    ch=0;
-                    break;
-                case 0:
-                    break;
-                default:
-                    continue;
-
-            }
-
-        }while(ch != 0);
-
     }
 }
