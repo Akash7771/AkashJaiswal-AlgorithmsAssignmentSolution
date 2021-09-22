@@ -7,7 +7,7 @@ ans : O(n^log3[base2])
 b) T (n) = 64T (n/8) - n^2(log n) 
 a=64,b=8 , k=2 , p=1
 log8 64 = log8 8^2 = 2 = k 
-ans : O(n^8log(n)) 
+ans : O(n^2log(n)) 
 
 c) T (n) = 2nT (n/2) + n^n 
 a=2n,b=2,k=n p=0 
