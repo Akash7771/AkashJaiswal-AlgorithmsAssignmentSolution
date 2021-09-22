@@ -1,0 +1,25 @@
+Find the time complexity of the below functions in T form. Write NA if the function does not 
+apply to any case.
+a) T (n) = 3T (n/2) + n 
+a=3,b=2,log2 3 ,k =1, p=0
+ans : O(n^log3[base2])
+ 
+b) T (n) = 64T (n/8) - n^2(log n) 
+a=64,b=8 , k=2 , p=1
+log8 64 = log8 8^2 = 2 = k 
+ans : O(n^8log(n)) 
+
+c) T (n) = 2nT (n/2) + n^n 
+a=2n,b=2,k=n p=0 
+ans : O(n^nlog(n))
+
+d) T (n) = 3T (n/3) + n/2 
+a=3,b=3,k=1 , p=0
+lo3 3 =1 =k 
+ans : O(nlog(n))
+
+e) T (n) = 7T (n/3) + n^2
+a=7,b=3, k=2 p=0
+log3 7 < k 
+ans : O(n^2)
+
