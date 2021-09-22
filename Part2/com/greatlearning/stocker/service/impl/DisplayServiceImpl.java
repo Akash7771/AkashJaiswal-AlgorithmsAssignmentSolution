@@ -15,7 +15,7 @@ public class DisplayServiceImpl implements DisplayService {
         else if(orderby.equals(ORDERBY.DESC)){
             order = "descending";
         }
-        System.out.println("Stock prices in "+order+" are");
+        System.out.println("Stock prices in "+order+" order are :");
         for(int i =0 ; i< stockPrices.length ; i++){
             System.out.print(stockPrices[i] + Seperator);
         }
@@ -28,16 +28,16 @@ public class DisplayServiceImpl implements DisplayService {
         if(growthstatus.equals(GROWTHSTATUS.ROSE))
             growth = "rose";
         else if(growthstatus.equals(GROWTHSTATUS.DECLINE))
-            growth = "decline";
+            growth = "declined";
 
         System.out.println("Total no of companies whose stock price "+ growth +" today : "+totalCount);
     }
 
     @Override
     public void displaySearchResult(Double stockPrice, Boolean found) {
-        String status = " ";
-        if(!found)
-            status = " not ";
-        System.out.println("Stock of value "+ stockPrice +" is"+ status +"present");
+        if(found)
+            System.out.println("Stock of value "+ stockPrice +" is present");
+        else
+            System.out.println("Value not found");
     }
 }
