@@ -43,8 +43,6 @@ public class Stocker {
                 companyList.add(company);
             }
 
-
-
             do {
                 System.out.println(
                         "Enter the operation that you want to perform" + lineBreak +
