@@ -43,8 +43,11 @@ public class Stocker {
                 companyList.add(company);
             }
 
+
+
             do {
                 System.out.println(
+                        "\n-----------------------------------\n" +
                         "Enter the operation that you want to perform" + lineBreak +
                                 "1. Display the companies stock prices in ascending order" + lineBreak +
                                 "2. Display the companies stock prices in descending order" + lineBreak +
@@ -86,6 +89,7 @@ public class Stocker {
                         ch=0;
                         break;
                     case 0:
+                        System.out.println("Exited successfully");
                         break;
                     default:
                         continue;
