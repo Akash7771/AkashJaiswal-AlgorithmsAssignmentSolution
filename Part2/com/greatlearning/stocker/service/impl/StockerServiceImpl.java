@@ -45,10 +45,12 @@ public class StockerServiceImpl implements StockerService {
     @Override
     public Boolean searchStockByStockPrice(List<Company> companyList , Double stockPrice) {
         searchingService = new SearchingServiceImpl();
+        sortingService = new SortingServiceImpl();
         Double [] stockPrices = new Double[companyList.size()];
         for(int i =0 ; i < companyList.size() ; i ++){
             stockPrices[i] = companyList.get(i).getStorckPrice();
         }
+        sortingService.mergeSortingUsingOrderBy(stockPrices , ORDERBY.ASC);
         return searchingService.binarySearching(stockPrices , stockPrice);
 
     }
